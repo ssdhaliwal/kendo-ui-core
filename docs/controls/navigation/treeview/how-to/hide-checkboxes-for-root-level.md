@@ -9,6 +9,7 @@ slug: howto_hidecheckboxesforrootlevel_treeview
 
 The example below demonstrates how to use the `checkboxes.template` configuration option to hide the checkboxes for the root level items in a Kendo UI TreeView widget.
 
+Added ' && !item.hasChildren' in the template to only have checkbox's for the children.
 ###### Example
 
 ```html
@@ -19,7 +20,7 @@ The example below demonstrates how to use the `checkboxes.template` configuratio
         checkboxes: {
           checkChildren: true,
           template:
-            "# if (item.level() > 0) { #" +
+            "# if (item.level() > 0 && !item.hasChildren) { #" +
                 "<input type='checkbox' #= item.checked ? 'checked' : '' #>" +
             "# } #"
         },
